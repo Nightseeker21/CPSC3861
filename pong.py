@@ -29,12 +29,12 @@ ROUNDS = 5
 MUST_WIN_3 = 3
 
 # Setting up images
-BACKGROUND_IMAGE = pygame.image.load('Images/background.png')
-rect0 = BACKGROUND_IMAGE.get_rect()
-SPHERE = pygame.image.load('Images/sphere.png')
-rect1 = SPHERE.get_rect()
-PADDLE = pygame.image.load('Images/paddle_design.jpg')
-rect2 = PADDLE.get_rect()
+#BACKGROUND_IMAGE = pygame.image.load('Images/background.png')
+#rect0 = BACKGROUND_IMAGE.get_rect()
+#SPHERE = pygame.image.load('Images/sphere.png')
+#rect1 = SPHERE.get_rect()
+#PADDLE = pygame.image.load('Images/paddle_design.jpg')
+#rect2 = PADDLE.get_rect()
 
 #Creating text for the game
 def drawText(text, font, surf, x, y):
@@ -170,12 +170,18 @@ def play():
     drawText('Press any key to play', font, Surface, (WINDOWWIDTH / 3) - 30, (WINDOWHEIGHT / 3) + 50)
     pygame.display.update()
     PlayerPressKey()
+    
+    #Winning points
+    Surface.fill(BACKGROUND)
+    drawText('Need a 11 points to win', font, Surface, (WINDOWWIDTH / 3) - 30, (WINDOWHEIGHT / 3) + 50)
+    pygame.display.update()
+    PlayerPressKey()
 
     game_on = True
 
     player_score = 0
     AI_score = 0
-    winning_score = 1
+    winning_score = 11
 
     while game_on:
         for event in pygame.event.get():
